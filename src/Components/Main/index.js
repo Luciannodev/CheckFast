@@ -7,12 +7,12 @@ import './styles.css'
 
 export default class Main extends Component {
   state = {
-    inside :false,
+    inside : false,
     tarefas: []
   }
 
   CriarLista(){
-    this.setState()
+    this.setState({inside:true})
   }
   render() {
     if(!this.state.inside){
@@ -22,7 +22,8 @@ export default class Main extends Component {
     </main>
     }else{
       return<main>
-      <input>Escolha um nome </input>
+      Digite o nome da lista <input/>
+      <button>Criar</button>
       </main>
     }
   
