@@ -1,33 +1,35 @@
 import React,{Component} from 'react';
-import plus from '../../asserts/plus.png'
-import './styles.css'
-
-
-// import { Container } from './styles';
-
-export default class Main extends Component {
-  state = {
-    inside : false,
-    tarefas: []
+import Header from '../Header/index.js'
+import Home from './Home/index.js'
+import Criarlista from './CriarLista/index.js'
+export default class Standart extends Component {
+  state ={ 
+    pagina: "Home",
+    listas: []
+  }
+  Criarlista = () =>{
+    this.setState({pagina:"CriarLista"})
+  }
+  BackHome = () =>{
+    this.setState({pagina:"Home"})
   }
 
-  CriarLista(){
-    this.setState({inside:true})
-  }
   render() {
-    if(!this.state.inside){
-      return<main>
-      <img src={plus} onClick={this.CriarLista}/> 
-    <h2 onClick={this.CriarLista}>Adicionar um nova lista</h2>
-    </main>
-    }else{
-      return<main>
-      Digite o nome da lista <input/>
-      <button>Criar</button>
-      </main>
-    }
-  
+    if(this.state.pagina === "Home"){
+      return<>
+      <Header/>
+      <Home onList={() =>this.Criarlista()} />     
+    <ul></ul>
+      </>
+      }
+      else if(this.state.pagina === "CriarLista"){
+        return <>
+        <Header/>
+        <Criarlista outList={() =>this.BackHome() }  />
+        </>
+}
     ;
   }
 }
+
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import raio from '../../asserts/raio.png'
-import './styles.css'
-// import { Container } from './styles';
+import './styles.js'
+import { Title } from './styles.js';
+
 
 export default class Header extends Component {
   render() {
-    return <h1>Check <img src={raio}/>  Fast</h1>;
+    return <Title>Check <img src={raio} alt="imagem não encontrada"/>  Fast</Title>;
   }
 }
 
